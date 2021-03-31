@@ -1,5 +1,3 @@
-from inspect import signature
-
 import openproblems
 import parameterized
 import utils
@@ -26,6 +24,8 @@ utils.warnings.ignore_warnings()
 @utils.docker.docker_test(timeout=600, retries=2)
 def test_method(task_name, method_name, tempdir, image):
     """Test application of a method."""
+    from inspect import signature
+
     import anndata
 
     task = getattr(openproblems.tasks, task_name)
