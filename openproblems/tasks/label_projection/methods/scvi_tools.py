@@ -91,7 +91,6 @@ def scanvi_hvg(adata, test=False):
             inplace=False,
             n_top_genes=2000,
             batch_key="batch",
-            check_values=False,
         )
     except ValueError:
         hvg_df = sc.pp.highly_variable_genes(
