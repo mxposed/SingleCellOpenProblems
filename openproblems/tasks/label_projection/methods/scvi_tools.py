@@ -100,7 +100,7 @@ def scanvi_hvg(adata, test=False):
             batch_key="batch",
         )
         if test:
-            kwargs["n_top_genes"] = 200
+            kwargs["n_top_genes"] = 50
 
         hvg_df = sc.pp.highly_variable_genes(adata[adata.obs["is_train"]], **kwargs)
     bdata = adata[:, hvg_df.highly_variable].copy()
@@ -150,7 +150,7 @@ def scarches_scanvi_hvg(adata, test=False):
             batch_key="batch",
         )
         if test:
-            kwargs["n_top_genes"] = 200
+            kwargs["n_top_genes"] = 50
 
         hvg_df = sc.pp.highly_variable_genes(adata[adata.obs["is_train"]], **kwargs)
     bdata = adata[:, hvg_df.highly_variable].copy()
