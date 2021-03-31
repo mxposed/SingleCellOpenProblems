@@ -93,13 +93,16 @@ def scanvi_hvg(adata, test=False):
             batch_key="batch",
         )
     except ValueError:
-        hvg_df = sc.pp.highly_variable_genes(
-            adata[adata.obs["is_train"]],
+        kwargs = dict(
             flavor="cell_ranger",
             inplace=False,
             n_top_genes=2000,
             batch_key="batch",
         )
+        if test:
+            kwargs["n_top_genes"] = 200
+
+        hvg_df = sc.pp.highly_variable_genes(adata[adata.obs["is_train"]], **kwargs)
     bdata = adata[:, hvg_df.highly_variable].copy()
     adata.obs["labels_pred"] = _scanvi(bdata, test=test)
     return adata
@@ -140,13 +143,16 @@ def scarches_scanvi_hvg(adata, test=False):
             batch_key="batch",
         )
     except ValueError:
-        hvg_df = sc.pp.highly_variable_genes(
-            adata[adata.obs["is_train"]],
+        kwargs = dict(
             flavor="cell_ranger",
             inplace=False,
             n_top_genes=2000,
             batch_key="batch",
         )
+        if test:
+            kwargs["n_top_genes"] = 200
+
+        hvg_df = sc.pp.highly_variable_genes(adata[adata.obs["is_train"]], **kwargs)
     bdata = adata[:, hvg_df.highly_variable].copy()
     adata.obs["labels_pred"] = _scanvi_scarches(bdata, test=test)
     return adata
