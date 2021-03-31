@@ -71,7 +71,9 @@ def method(
             log.debug("Running {} method".format(func.__name__))
             if "test" in inspect.signature(func).parameters:
                 if args and isinstance(args[0], anndata.AnnData):
-                    kwargs["test"] = hasattr(args[0], "__is_test__")
+                    is_test = hasattr(args[0], "__is_test__")
+                    print(f"setting test={is_test} for {func.__name__}")
+                    kwargs["test"] = is_test
             return func(*args, **kwargs)
 
         apply_method.metadata = dict(

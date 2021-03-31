@@ -134,6 +134,7 @@ def scarches_scanvi_all_genes(adata, test=False):
 def scarches_scanvi_hvg(adata, test=False):
     import scanpy as sc
 
+    print(f"scarches_scanvi_hvg test={test}")
     try:
         hvg_df = sc.pp.highly_variable_genes(
             adata[adata.obs["is_train"]],
