@@ -90,6 +90,7 @@ def scanvi_hvg(adata, test=False):
         inplace=False,
         n_top_genes=2000,
         batch_key="batch",
+        check_values=False,
     )
     bdata = adata[:, hvg_df.highly_variable].copy()
     adata.obs["labels_pred"] = _scanvi(bdata, test=test)
@@ -128,6 +129,7 @@ def scarches_scanvi_hvg(adata, test=False):
         inplace=False,
         n_top_genes=2000,
         batch_key="batch",
+        check_values=False,
     )
     bdata = adata[:, hvg_df.highly_variable].copy()
     adata.obs["labels_pred"] = _scanvi_scarches(bdata, test=test)
