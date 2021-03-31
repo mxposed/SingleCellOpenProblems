@@ -95,7 +95,7 @@ def scanvi_hvg(adata, test=False):
     except ValueError:
         hvg_df = sc.pp.highly_variable_genes(
             adata[adata.obs["is_train"]],
-            flavor="cellranger",
+            flavor="cell_ranger",
             inplace=False,
             n_top_genes=2000,
             batch_key="batch",
@@ -142,7 +142,7 @@ def scarches_scanvi_hvg(adata, test=False):
     except ValueError:
         hvg_df = sc.pp.highly_variable_genes(
             adata[adata.obs["is_train"]],
-            flavor="cellranger",
+            flavor="cell_ranger",
             inplace=False,
             n_top_genes=2000,
             batch_key="batch",
