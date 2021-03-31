@@ -7,7 +7,7 @@ import scprep
 import tempfile
 
 
-def get_filenames_and_urls(url_df, method_list=None, organ_list=None, test=False):
+def get_filenames_and_urls(url_df, method_list=None, organ_list=None):
     """Takes in dataframe and returns corresponding filename(s) and url(s).
 
     Takes in dataframe (with sample information stored), a list of methods,
@@ -42,7 +42,7 @@ def make_anndata_from_filename_and_url(filename, url, test=False):
     return adata
 
 
-def make_anndata_list(subset_df, test=False):
+def make_anndata_list(subset_df, test):
     """Makes anndata from filename/url pair. Adds to list of anndatas.
 
     Input dataframe that contains filenames and urls to make anndatas from.
@@ -52,12 +52,10 @@ def make_anndata_list(subset_df, test=False):
     for i in range(len(subset_df)):
         row = subset_df.iloc[i]
         adata_list.append(
-            make_anndata_from_filename_and_url(
-                row.filename, row.figshare_url, test=test
-            )
+            make_anndata_from_filename_and_url(row.filename, row.figshare_url)
         )
     if test:
-        return adata_list[:1]
+        return adata_list[0]
     return adata_list
 
 
