@@ -69,7 +69,7 @@ def method(
         @functools.wraps(func)
         def apply_method(*args, **kwargs):
             log.debug("Running {} method".format(func.__name__))
-            if "test" in inspect.signature(func).parameters:
+            if "test" in inspect.signature(func).parameters and "test" not in kwargs:
                 if args and isinstance(args[0], anndata.AnnData):
                     is_test = args[0].uns.get("__is_test__", False)
                     print(f"setting test={is_test} for {func.__name__}")
