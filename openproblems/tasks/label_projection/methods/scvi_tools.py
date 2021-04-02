@@ -47,7 +47,7 @@ def _scanvi_scarches(adata, test=False):
         train_kwargs["max_epochs"] = 1
     scvi_model.train(**train_kwargs)
     model = scvi.model.SCANVI.from_scvi_model(scvi_model, unlabeled_category="Unknown")
-    model.train(train_size=1.0)
+    model.train(**train_kwargs)
 
     query_model = scvi.model.SCANVI.load_query_data(adata_test, model)
     train_kwargs = dict(max_epochs=200)
