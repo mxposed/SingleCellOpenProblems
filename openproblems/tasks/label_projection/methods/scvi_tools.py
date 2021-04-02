@@ -50,7 +50,10 @@ def _scanvi_scarches(adata, test=False):
     model.train(train_size=1.0)
 
     query_model = scvi.model.SCANVI.load_query_data(adata_test, model)
-    query_model.train(max_epochs=200, plan_kwargs=dict(weight_decay=0.0))
+    train_kwargs = dict(max_epochs=200)
+    if test:
+        train_kwargs["max_epochs"] = 1
+    query_model.train(plan_kwargs=dict(weight_decay=0.0), **train_kwargs)
 
     # predictions for train and test
     return query_model.predict(adata)
