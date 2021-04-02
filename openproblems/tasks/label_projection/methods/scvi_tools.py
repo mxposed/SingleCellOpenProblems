@@ -16,7 +16,7 @@ def _scanvi(adata, test=False):
         train_kwargs["max_epochs"] = 1
     scvi_model.train(**train_kwargs)
     model = scvi.model.SCANVI.from_scvi_model(scvi_model, unlabeled_category="Unknown")
-    model.train(train_size=1.0)
+    model.train(**train_kwargs)
     del adata.obs["scanvi_labels"]
     # predictions for train and test
     return model.predict(adata)
