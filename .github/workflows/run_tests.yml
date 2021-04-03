@@ -78,22 +78,6 @@ jobs:
         pip install -U --editable .[test,r,evaluate]
         python -c "import openproblems"
 
-    - name: Cache R packages
-      uses: actions/cache@v2
-      if: startsWith(runner.os, 'Linux')
-      with:
-        path: ${{ env.RENV_PATHS_ROOT }}
-        key: ${{ env.UBUNTU_VERSION }}-renv-${{ steps.setup-r.outputs.installed-r-version }}-${{ hashFiles('**/renv.lock') }}
-        restore-keys: |
-          ${{ env.UBUNTU_VERSION }}-renv-${{ steps.setup-r.outputs.installed-r-version }}-
-
-    - name: Install R packages
-      run: |
-        if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
-        renv::restore()
-        renv::install(scan("docker/openproblems-r-base/r_requirements.txt", what=character(), sep="\n"))
-      shell: Rscript {0}
-
     - name: Build Docker images
       run: |
         cd workflow
