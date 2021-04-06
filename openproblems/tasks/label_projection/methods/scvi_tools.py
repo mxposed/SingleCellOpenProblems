@@ -17,9 +17,10 @@ def _scanvi(adata, test=False):
     scvi_model.train(**train_kwargs)
     model = scvi.model.SCANVI.from_scvi_model(scvi_model, unlabeled_category="Unknown")
     model.train(**train_kwargs)
+    preds = model.predict(adata)
     del adata.obs["scanvi_labels"]
     # predictions for train and test
-    return model.predict(adata)
+    return preds
 
 
 def _scanvi_scarches(adata, test=False):
@@ -55,8 +56,12 @@ def _scanvi_scarches(adata, test=False):
         train_kwargs["max_epochs"] = 1
     query_model.train(plan_kwargs=dict(weight_decay=0.0), **train_kwargs)
 
+    # this is temporary and won't be used
+    adata.obs["scanvi_labels"] = "Unknown"
+    preds = query_model.predict(adata)
+    del adata.obs["scanvi_labels"]
     # predictions for train and test
-    return query_model.predict(adata)
+    return preds
 
 
 @method(
