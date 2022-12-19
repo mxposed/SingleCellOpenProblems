@@ -12,7 +12,7 @@ install_requires = [
     "scanpy>=1.6",
     "louvain==0.8.*",
     "python-igraph==0.10.*",
-    "decorator<5.0",  # pinned in #324
+    "decorator<6.0",  # pinned in #324
     "memory-profiler==0.60",
     "colorama==0.4.*",
     "packaging==21.3",
