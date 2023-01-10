@@ -23,6 +23,7 @@ website, or simply star it in GitHub to say "I use it".
 ### Table of Contents  <!-- markdownlint-disable-line MD001 -->
 
 <<<<<<< HEAD
+
 * [Submitting New Features](#submitting-new-features)
 * [API](#api)
   * [Writing functions in R](#writing-functions-in-r)
@@ -37,20 +38,21 @@ website, or simply star it in GitHub to say "I use it".
 * [Code of Conduct](#code-of-conduct)
 * [Attribution](#attribution)
 =======
-- [Contributing to Open Problems for Single Cell Analysis](#contributing-to-open-problems-for-single-cell-analysis)
-    - [Table of Contents  ](#table-of-contents--)
-  - [Submitting New Features](#submitting-new-features)
-  - [API](#api)
-    - [Writing functions in R](#writing-functions-in-r)
-    - [Adding package dependencies](#adding-package-dependencies)
-    - [Adding a new dataset](#adding-a-new-dataset)
-    - [Adding a dataset / method / metric to a task](#adding-a-dataset--method--metric-to-a-task)
-      - [Testing method performance](#testing-method-performance)
-    - [Adding a new task](#adding-a-new-task)
-    - [Adding a new Docker container](#adding-a-new-docker-container)
-  - [Code Style and Testing](#code-style-and-testing)
-  - [Code of Conduct](#code-of-conduct)
-  - [Attribution](#attribution)
+* [Contributing to Open Problems for Single Cell Analysis](#contributing-to-open-problems-for-single-cell-analysis)
+  * [Table of Contents](#table-of-contents--)
+  * [Submitting New Features](#submitting-new-features)
+  * [API](#api)
+    * [Writing functions in R](#writing-functions-in-r)
+    * [Adding package dependencies](#adding-package-dependencies)
+    * [Adding a new dataset](#adding-a-new-dataset)
+    * [Adding a dataset / method / metric to a task](#adding-a-dataset--method--metric-to-a-task)
+      * [Testing method performance](#testing-method-performance)
+    * [Adding a new task](#adding-a-new-task)
+    * [Adding a new Docker container](#adding-a-new-docker-container)
+  * [Code Style and Testing](#code-style-and-testing)
+  * [Code of Conduct](#code-of-conduct)
+  * [Attribution](#attribution)
+
 >>>>>>> bd4d6fde (Rename zebrafish_labels to zebrafish_labs dataset)
 
 <!-- Table of contents generated with
